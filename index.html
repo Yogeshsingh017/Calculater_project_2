@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+ <main class="main_content">
+  
+  <form class="inp">
+  <input type="text" name="number" id="num1" class="num_1" placeholder="0"  maxlength="10" readonly>
+  </form>
+  
+  <div class="btn">
+  <button class="num" onclick="clr()">C</button>
+  <button class="num" onclick="op('/')">÷</button>
+  <button class="num" onclick="op('*')">×</button>
+  <button class="num" onclick="del()">del</button>
+  <button class="num" onclick="insert(9)">9</button>
+  <button class="num" onclick="insert(8)">8</button>
+  <button class="num" onclick="insert(7)">7</button>
+  <button class="num" onclick="op('-')">-</button>
+  <button class="num" onclick="insert(6)">6</button>
+  <button class="num" onclick="insert(5)">5</button>
+  <button class="num" onclick="insert(4)">4</button>
+  <button class="num" onclick="op('+')">+</button>
+  <button class="num" onclick="insert(3)">3</button>
+  <button class="num" onclick="insert(2)">2</button>
+  <button class="num" onclick="insert(1)">1</button>
+  <button class="num" onclick="equal()">=</button>
+  <br />
+  <button class="num" onclick="op('%')">%</button>
+  <button class="num" onclick="insert(0)">0</button>
+  <button class="num" onclick="op('.')">.</button>
+  </div>
+  
+ </main> 
+ 
+ <script>
+ const num1 = document.querySelector("#num1")
+ 
+ function insert(numbers){
+    num1.value += numbers;
+ }  
+ 
+ function op(operand){
+   num1.value += operand;
+ }
+ 
+ function equal(){
+   try{
+   let result = eval(num1.value);
+   num1.value = eval(result);
+   } catch{
+     num1.value = "Syntax error";
+   }
+ }
+ 
+ function clr(){
+   num1.value = "";
+ }
+
+ function del(){
+   num1.value = 
+   num1.value.slice(0, -1);
+ }
+ </script>
+ 
+</body>
+</html>
